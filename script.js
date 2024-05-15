@@ -31,7 +31,10 @@ document.addEventListener('DOMContentLoaded', () => {
         button.disabled = true;
         button.style.backgroundColor = 'grey';
 
-        fetch(`${serverUrl}/api/button`)
+        fetch(`${serverUrl}/api/button`, {
+            method: 'GET',
+            mode: 'cors'
+        })
             .then(response => response.json())
             .then(data => {
                 if (data.form && data.color) {
@@ -72,7 +75,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function fetchRandomData() {
-        fetch(`${serverUrl}/api/random`)
+        fetch(`${serverUrl}/api/random`, {
+            method: 'GET',
+            mode: 'cors'
+        })
             .then(response => response.json())
             .then(data => {
                 if (data.answer) {
